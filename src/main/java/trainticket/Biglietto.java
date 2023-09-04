@@ -16,8 +16,8 @@ public class Biglietto {
 
     public Biglietto(int km, int age, LocalDate date, Boolean flexible) throws RuntimeException {
 
-        isValidAge();
-        isValidKm();
+        isValidAge(age);
+        isValidKm(km);
 
         this.km = km;
         this.age = age;
@@ -50,13 +50,13 @@ public class Biglietto {
 
     }
 
-    private void isValidKm(){
+    private void isValidKm(int km){
         if (km<0){
             throw new RuntimeException();
         }
     }
 
-    private void isValidAge(){
+    private void isValidAge(int age){
         if (age<0 || age>100){
             throw new RuntimeException();
         }
