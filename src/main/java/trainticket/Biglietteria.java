@@ -1,27 +1,35 @@
 package trainticket;
 
+import java.time.LocalDate;
 import java.util.Scanner;
-
-/*Creare una classe Biglietteria, che contiene il metodo main in cui:
-        ● chiedere all’utente di inserire il numero di km e l’età del passeggero
-        ● con quei dati provare a creare un nuovo Biglietto (gestire eventuali eccezioni con try-catch)
-        ● stampare a video il prezzo del biglietto calcolato*/
 
 public class Biglietteria {
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
-        Boolean isvalid = false;
+        boolean isvalid = false;
 
         Biglietto biglietto = null;
         while (!isvalid) {
+            LocalDate date=LocalDate.now();
+
             System.out.println("Quanti Km devi percorrere? ");
             int km = Integer.parseInt(scan.nextLine());
 
             System.out.println("Qual è l'età del passeggero? ");
             int age = Integer.parseInt(scan.nextLine());
 
+            System.out.println("Vuoi il biglietto flessibile? y/n");
+            String choice= scan.nextLine();
+
+            boolean flexible=false;
+
+            if(choice.equalsIgnoreCase("y")){
+                flexible=true;
+            }
+
+
             try {
-                biglietto = new Biglietto(km, age);
+                biglietto = new Biglietto(km, age, date, flexible);
                 isvalid = true;
                 System.out.println("Il biglietto è valido");
 
@@ -31,6 +39,8 @@ public class Biglietteria {
 
         }
         System.out.println("Il prezzo del biglietto è " + biglietto.calcolaPrezzo() + "$");
+        System.out.println("la data di scadenza del biglietto è " + biglietto.calcolaDataScadenza());
+
 
 
         scan.close();
