@@ -3,11 +3,12 @@ package trainticket;
 import java.math.BigDecimal;
 
 public class Biglietto {
+
     private int km;
     private int age;
     private final BigDecimal kmPrice= BigDecimal.valueOf(0.21);
-    private final BigDecimal over65= BigDecimal.valueOf(0.4);
-    private final BigDecimal under18= BigDecimal.valueOf(0.2);
+    private final BigDecimal over65= BigDecimal.valueOf(0.6);
+    private final BigDecimal under18= BigDecimal.valueOf(0.8);
 
     public Biglietto(int km, int age) throws RuntimeException {
 
