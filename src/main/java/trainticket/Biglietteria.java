@@ -10,7 +10,7 @@ public class Biglietteria {
 
         Biglietto biglietto = null;
         while (!isvalid) {
-            LocalDate date=LocalDate.now();
+            LocalDate date = LocalDate.now();
 
             System.out.println("Quanti Km devi percorrere? ");
             int km = Integer.parseInt(scan.nextLine());
@@ -19,13 +19,9 @@ public class Biglietteria {
             int age = Integer.parseInt(scan.nextLine());
 
             System.out.println("Vuoi il biglietto flessibile? y/n");
-            String choice= scan.nextLine();
+            String choice = scan.nextLine();
 
-            boolean flexible=false;
-
-            if(choice.equalsIgnoreCase("y")){
-                flexible=true;
-            }
+            boolean flexible = choice.equalsIgnoreCase("y");
 
 
             try {
@@ -40,7 +36,6 @@ public class Biglietteria {
         }
         System.out.println("Il prezzo del biglietto è " + biglietto.calcolaPrezzo() + "$");
         System.out.println("la data di scadenza del biglietto è " + biglietto.calcolaDataScadenza());
-
 
 
         scan.close();
